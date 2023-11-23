@@ -13,7 +13,6 @@ function WorkoutCard({
     setWorkoutId(workout?.id);
     setIsModalOpenned(!isModalOpenned);
   };
-
   return (
     <Card style={{ width: "18rem", marginBottom: "20px" }}>
       <Card.Body>
