@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkOutItem from './WorkOutItem';
+import WorkOutCard from './WorkOutCard';
 
 // Workout List Component
 const WorkoutList = ({ workouts, onEdit, onDelete }) => {
@@ -8,8 +8,7 @@ const WorkoutList = ({ workouts, onEdit, onDelete }) => {
       <h2>Workout List</h2>
       <ul>
         {workouts.map((workout) => (
-          // Render WorkOutItem for each workout
-          <WorkOutItem
+          <WorkOutCard
             key={workout.id}
             workout={workout}
             onEdit={onEdit}
@@ -22,4 +21,3 @@ const WorkoutList = ({ workouts, onEdit, onDelete }) => {
 };
 
 export default WorkoutList;
-``
