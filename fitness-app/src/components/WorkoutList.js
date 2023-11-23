@@ -1,37 +1,25 @@
-import React from "react";
-import WorkoutCard from "./WorkoutCard";
+import React from 'react';
+import WorkOutItem from './WorkOutItem';
 
-const WorkoutList = ({
-  workouts,
-  handleEdit,
-  handleDelete,
-  isModalOpenned,
-  setIsModalOpenned,
-  setWorkoutId
-}) => {
-
+// Workout List Component
+const WorkoutList = ({ workouts, onEdit, onDelete }) => {
   return (
-    <div className="card-container">
+    <div>
       <h2>Workout List</h2>
       <ul>
-        {workouts &&
-          workouts
-            ?.reverse()
-            .map((workout, i) => (
-              <WorkoutCard
-                workout={workout}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-                setIsModalOpenned={setIsModalOpenned}
-                isModalOpenned={isModalOpenned}
-                setWorkoutId={setWorkoutId}
-                key={i}
-              />
-            ))}
+        {workouts.map((workout) => (
+          // Render WorkOutItem for each workout
+          <WorkOutItem
+            key={workout.id}
+            workout={workout}
+            onEdit={onEdit}
+            onDelete={onDelete}
+          />
+        ))}
       </ul>
     </div>
   );
 };
 
-
 export default WorkoutList;
+``
