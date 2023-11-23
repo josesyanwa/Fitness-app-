@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WorkoutForm from './Components/WorkoutForm';
+import WorkoutList from './Components/WorkoutList';
 
 function App() {
+  
+  const [workouts, setWorkouts] = useState([]);
+
+  const handleWorkoutSubmission = (workoutDetails) => {
+    
+    setWorkouts((prevWorkouts) => [...prevWorkouts, workoutDetails]);
+    console.log('Workout details submitted:', workoutDetails);
+  };
+
+  const handleEdit = (id) => {
+    console.log('Edit workout with id:', id);
+  };
+
+  const handleDelete = (id) => {
+    console.log('Delete workout with id:', id);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Fitness Tracker App</h1>
+      <WorkoutForm onSubmit={handleWorkoutSubmission} />
+      <WorkoutList workouts={workouts} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 }
