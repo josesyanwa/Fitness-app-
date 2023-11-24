@@ -8,14 +8,20 @@ function WorkoutCard({
   setIsModalOpenned,
   setWorkoutId,
 }) {
+  // Check if workout exists
+  if (!workout) {
+    return null; // or some default content, or an empty card
+  }
+
   const handleClick = () => {
     setWorkoutId(workout?.id);
     setIsModalOpenned(!isModalOpenned);
   };
+
   return (
     <Card style={{ width: "18rem", marginBottom: "20px" }}>
       <Card.Body>
-        <Card.Title>{workout.exercise}</Card.Title>
+        <Card.Title>{workout.exercise || "No Exercise"}</Card.Title>
         <Card.Text>
           <strong>Duration:</strong> {workout.duration} minutes
         </Card.Text>

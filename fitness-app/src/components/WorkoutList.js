@@ -1,21 +1,31 @@
+// WorkoutList.js
 import React from 'react';
-import WorkOutCard from './WorkOutCard';
+import WorkoutCard from './WorkoutCard'; // Adjust the path based on your project structure
 
-// Workout List Component
 const WorkoutList = ({ workouts, onEdit, onDelete }) => {
+  console.log("Workouts in WorkoutList:", workouts);
+
   return (
     <div>
       <h2>Workout List</h2>
-      <ul>
-        {workouts.map((workout) => (
-          <WorkOutCard
-            key={workout.id}
-            workout={workout}
-            onEdit={onEdit}
-            onDelete={onDelete}
-          />
-        ))}
-      </ul>
+      {workouts.length === 0 ? (
+        <p>No workouts available.</p>
+      ) : (
+        <ul>
+          {workouts.map((workout) => (
+            <WorkoutCard
+              key={workout.id}
+              exercise={workout.exercise}
+              duration={workout.duration}
+              date={workout.date}
+              notes={workout.notes}
+              id={workout.id}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
