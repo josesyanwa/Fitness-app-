@@ -17,3 +17,4 @@ function DeleteConfirmationModal({ isOpen, onCancel, onConfirm }) {
 }
 
 export default DeleteConfirmationModal;
+
